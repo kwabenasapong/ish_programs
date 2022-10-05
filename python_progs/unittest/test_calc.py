@@ -9,6 +9,17 @@ class TestCalc(unittest.TestCase):
     b = Calc(-1, 1)
     c = Calc(-1, -2)
 
+
+    def test_input(self):
+        Calc.a = 45
+        self.assertIsInstance(Calc.a, (int, float))
+        Calc.a = 45.65
+        self.assertIsInstance(Calc.a, (int, float))
+        Calc.b = 45.65
+        self.assertIsInstance(Calc.a, (int, float))
+        Calc.b = 45
+        self.assertIsInstance(Calc.a, (int, float))
+
     def test_add(self):
         self.assertEqual(TestCalc.a.add(), 105)
         self.assertEqual(TestCalc.b.add(), 0)
