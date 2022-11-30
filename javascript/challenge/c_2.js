@@ -21,11 +21,11 @@ if (process.argv.length <= 2 || checkArg(process.argv[2], 10) === 0) {
   while (i < len) {
     let number = myConverter_10(parseInt(process.argv[i], 2));
     if (i === 2) {console.log(typeof(number));}
-    if (i !== (len - 1)) {
-      process.stdout.write(myConverter_16(parseInt(number)) + ', ');
-    } else {
-      process.stdout.write(myConverter_16(parseInt(number)));
+    if (i % 11 === 0) {
+      console.log();
     }
+    process.stdout.write(number);
+    //process.stdout.write(String.fromCharCode(parseInt(number)));
     i++;
   }
 }
