@@ -30,6 +30,7 @@ db.close()
 '''
 
 import sqlalchemy
+import MySQLdb
 from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -38,8 +39,10 @@ from sqlalchemy import Column, Integer, String
 
 #if __name__ == "__main__":
 '''connecting to the mysql'''
-#url = 'mysql://{}:{}@localhost/{}:3306'.format("koby", "Kw@5a9ng", "my_self")
-engine = create_engine('mysql+mysqldb://koby:Kw@5a9ng@localhost:3306/my_self', pool_pre_ping=True)
+#url = "mysql+mysqldb://{}:{}@localhost/{}".format("alx", "Al*4221@", "test")
+#engine = create_engine(url, pool_pre_ping=True)
+
+engine = create_engine("mysql+mysqldb://alx:Al*4221@@localhost/test", pool_recycle=3600)
 
 '''Mapping the ORM'''
 Base = declarative_base()
@@ -57,6 +60,6 @@ class Member(Base):
 '''Create a Schema'''
 #print(Member.__table__)
 
-#Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)
 
 #connection = engine.connect()
