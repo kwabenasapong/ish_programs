@@ -38,8 +38,8 @@ from sqlalchemy import Column, Integer, String
 
 #if __name__ == "__main__":
 '''connecting to the mysql'''
-#url = 'mysql://{}:{}@localhost/{}'.format("koby", "Kw@5a9ng", "my_self")
-engine = create_engine('mysql://{}:{}@localhost/{}'.format("koby", "Kw@5a9ng", "my_self"), pool_pre_ping=True)
+#url = 'mysql://{}:{}@localhost/{}:3306'.format("koby", "Kw@5a9ng", "my_self")
+engine = create_engine('mysql+mysqldb://koby:Kw@5a9ng@localhost:3306/my_self', pool_pre_ping=True)
 
 '''Mapping the ORM'''
 Base = declarative_base()
@@ -57,7 +57,6 @@ class Member(Base):
 '''Create a Schema'''
 #print(Member.__table__)
 
-Base.metadata.create_all(engine)
+#Base.metadata.create_all(engine)
 
-
-
+#connection = engine.connect()
