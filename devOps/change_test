@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# example sed tutuorial
+new_config="start\n\tserver_name \_\;\n\tlocation \/redirect_me \{\n\treturn 301 \$scheme\:\/\/\$host_name\;\n\}\n"
+#new_config="\/redirect_me https\:\/\/www.youtube.com\/watch\?v\=QH2\-TGUlwu4 permanent\;"
+sed -i "s/start/$new_config/" test
