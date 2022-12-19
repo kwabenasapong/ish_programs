@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Configures a new haproxy.cfg file
+
+new_config="defaults\n\tmode\thttp\n\ttimeout\tclient\t10s\n\ttimeout\tconnect\t5s\n\ttimeout\tserver\t10s\n\ttimeout\thttp-request\t10s"
+new_config_1="errorfile 504 \/etc\/haproxy\/errors\/504.http\n\nfrontend myfrontend\n\    bind \*\:80"
+replace="errorfile 504 \/etc\/haproxy\/errors\/504.http"
+sudo sed -i "s/defaults/$new_config/" /etc/haproxy/haproxy.cfg
+sudo sed -i "s/$replace/$new_config_1/" /etc/haproxy/haproxy.cfg
+sudo systemctl restart haproxy
