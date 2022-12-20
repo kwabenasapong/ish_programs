@@ -1,0 +1,19 @@
+To build and install the chat application, you can simply run the following command:
+
+make install
+
+This will run the install target in the Makefile, which will build the chat application (if necessary), and then install the client and server scripts, as well as the man page, in the specified directories.
+
+To uninstall the chat application, you can run the following command:
+
+make uninstall
+
+This will run the uninstall target in the Makefile, which will remove the client and server scripts, as well as the man page, from the specified directories.
+
+To create a distribution archive of the chat application, you can run the following command:
+
+make dist
+
+This will run the dist target in the Makefile, which will create a tarball (.tar.gz)
+
+

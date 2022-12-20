@@ -1,0 +1,11 @@
+To create a more complex chat application over SSH that can be used on the internet, you will need to use a combination of bash and other tools. Here is a high-level outline of the steps you might take:
+
+Set up a remote server with a static IP address or a domain name. You will need to install and configure an SSH server on this server.
+
+Write a bash script to run on the server that listens for incoming connections from clients. You can use the nc (netcat) command to do this, as in the previous example.
+
+Write a bash script to run on the client side that connects to the server using the nc command. You will need to specify the server's hostname or IP address and the port number to connect to.
+
+Add logic to the server and client scripts to handle sending and receiving messages. You may want to use pipes (|) to send messages between the server and client processes.
+
+You may also want to add some additional features to your chat application, such as a user login system, support for multiple chat rooms, or the ability to send private messages. You can implement these features using additional bash scripts and utilities.
