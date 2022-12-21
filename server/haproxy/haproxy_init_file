@@ -1,0 +1,99 @@
+# HAProxy can be managed using an init script, which is a script that is executed at system startup and shutdown to start, stop, or restart the HAProxy service. To manage HAProxy with an init script, follow these steps:
+
+# 1. Create an init script for HAProxy:
+# 	Create a new file called haproxy in the /etc/init.d directory.
+# 	Add the following content to the file:
+ 
+
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          haproxy
+# Required-Start:    $local_fs $network $named $time $syslog
+# Required-Stop:     $local_fs $network $named $time $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Description:       HAProxy load balancer
+### END INIT INFO
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Set variables
+HAPROXY="/usr/sbin/haproxy"
+CONFIG="/etc/haproxy/haproxy.cfg"
+PIDFILE="/var/run/haproxy.pid"
+
+# Start HAProxy
+start() {
+    [ -x $HAPROXY ] || exit 5
+    [ -f $CONFIG ] || exit 6
+    echo -n $"Starting HAProxy: "
+    daemon $HAPROXY -f $CONFIG -p $PIDFILE
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/haproxy
+    return $RETVAL
+}
+
+# Stop HAProxy
+stop() {
+    echo -n $"Stopping HAProxy: "
+    killproc $HAPROXY
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/haproxy /var/run/haproxy.pid
+    return $RETVAL
+}
+
+# Restart HAProxy
+restart() {
+    stop
+    start
+}
+
+# Check the status of HAProxy
+status() {
+    status $HAPROXY
+}
+
+# Main function
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $HAPROXY
+        ;;
+    restart)
+        restart
+        ;;
+    reload)
+        restart
+        ;;
+    condrestart|try-restart)
+        [ -f /var/lock/subsys/haproxy ] && restart || :
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|reload|condrestart|try-restart}"
+        exit 2
+esac
+
+exit $?
+
+
+# 2. Make the init script executable:
+#	Run the following command to make the init script executable:
+# chmod +x /etc/init.d/haproxy
+
+# 3. Enable the init script:
+#	Run the following command to enable the init script:
+# systemctl enable haproxy
+
+# 4. Start, stop, or restart the HAProxy service:
+#	To start the HAProxy service, run the following command:
+# sudo service haproxy (start / stop / restart)
+
+
