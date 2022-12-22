@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# subdomains information
+
+# The script takes two arguments: the domain name and an optional subdomain name. If no subdomain name is provided, the script will display information for all of the subdomains listed in the for loop.
+
+# The script defines a function called display_info that takes two arguments: the domain name and the subdomain name. The function uses the dig command to look up DNS information for the subdomain, and then uses awk to parse the output and display the relevant information.
+
+# Theforloopdisplay_info function and passes in the domain name and the subdomain name as arguments. If a subdomain name was provided as an argument to the script, the script will only display information for that subdomain. Otherwise, it will display information for all of the subdomains listed in the loop.
+
+display_info ()
+{
+    domain="$1"
+    subdomain="$2"
+    dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
+}
+
+for subdomain in "www" "lb-01" "web-01" "web-02"
+do
+    if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
+    then
+	display_info "$1" "$subdomain"
+    fi
+done

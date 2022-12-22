@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+package=$1
+# Check if the package is installed
+if ! apt-get -s install "$package" > /dev/null 2>&1;
+then
+    # Install the package if it is not installed
+    apt-get install "$package"
+    echo "$package installed"
+else
+	echo "$package Already installed"
+fi
+echo 'Finshed Operation'

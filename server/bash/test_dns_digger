@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# This script audits a domain and its subdomains
+
+# Check if the required number of arguments was provided
+if [ $# -lt 1 ]; then
+  echo "Error: missing arguments"
+  echo "Usage: $0 domain [subdomain]"
+  exit 1
+fi
+
+# Store the domain and subdomain in variables
+domain=$1
+subdomain=$2
+
+# Define a function to retrieve and display DNS information for a subdomain
+get_dns_info() {
+  subdomain=$1
+  record_type=$(dig +short "$subdomain" @1.1.1.1 | awk '{print $5}')
+  destination=$(dig +short "$subdomain" @1.1.1.1)
+  echo "The subdomain $subdomain is a $record_type record and points to $destination"
+}
+
+# If a subdomain was provided, display its DNS information
+if [ -n "$subdomain" ]; then
+  get_dns_info "$subdomain"
+
+# Otherwise, display DNS information for the default subdomains
+else
+  get_dns_info "$domain"
+  get_dns_info "www.$domain"
+  get_dns_info "lb-01.$domain"
+  get_dns_info "web-01.$domain"
+  get_dns_info "web-02.$domain"
+fi

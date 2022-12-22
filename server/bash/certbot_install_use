@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Installing and using certbot with Nginx
+
+# sudo apt update
+# sudo add-apt-repository ppa:certbot/certbot
+sudo apt update
+sudo apt install certbot
+# sudo apt install python3-certbot-nginx
+# sudo certbot --nginx -d $1 -d $2
+sudo service haproxy stop
+sudo certbot certonly --standalone -d $1
