@@ -1,0 +1,20 @@
+13:57:55.146665 IP ubuntu-focal.ssh > _gateway.52520: Flags [P.], seq 1841608408:1841608572, ack 137623179, win 62780, length 164
+13:57:55.147075 IP _gateway.52520 > ubuntu-focal.ssh: Flags [.], ack 164, win 65535, length 0
+13:57:56.177639 IP ubuntu-focal.60644 > 10.0.2.3.domain: 40814+ [1au] PTR? 2.2.0.10.in-addr.arpa. (50)
+13:57:56.181965 IP 10.0.2.3.domain > ubuntu-focal.60644: 40814 NXDomain* 0/1/1 (109)
+13:57:56.182106 IP ubuntu-focal.60644 > 10.0.2.3.domain: 40814+ PTR? 2.2.0.10.in-addr.arpa. (39)
+13:57:56.184684 IP 10.0.2.3.domain > ubuntu-focal.60644: 40814 NXDomain* 0/1/0 (98)
+13:57:56.185717 IP ubuntu-focal.51463 > 10.0.2.3.domain: 54163+ [1au] PTR? 15.2.0.10.in-addr.arpa. (51)
+13:57:56.189380 IP 10.0.2.3.domain > ubuntu-focal.51463: 54163 NXDomain* 0/1/1 (110)
+13:57:56.189494 IP ubuntu-focal.51463 > 10.0.2.3.domain: 54163+ PTR? 15.2.0.10.in-addr.arpa. (40)
+13:57:56.191856 IP 10.0.2.3.domain > ubuntu-focal.51463: 54163 NXDomain* 0/1/0 (99)
+13:57:57.178526 IP ubuntu-focal.47917 > 10.0.2.3.domain: 45912+ [1au] PTR? 3.2.0.10.in-addr.arpa. (50)
+13:57:57.182096 IP 10.0.2.3.domain > ubuntu-focal.47917: 45912 NXDomain* 0/1/1 (109)
+13:57:57.182235 IP ubuntu-focal.47917 > 10.0.2.3.domain: 45912+ PTR? 3.2.0.10.in-addr.arpa. (39)
+13:57:57.185449 IP 10.0.2.3.domain > ubuntu-focal.47917: 45912 NXDomain* 0/1/0 (98)
+13:58:01.273866 ARP, Request who-has 10.0.2.3 tell ubuntu-focal, length 28
+13:58:01.274165 ARP, Reply 10.0.2.3 is-at 52:54:00:12:35:03 (oui Unknown), length 46
+13:58:11.961187 IP _gateway.52520 > ubuntu-focal.ssh: Flags [P.], seq 1:37, ack 164, win 65535, length 36
+13:58:11.961694 IP ubuntu-focal.ssh > _gateway.52520: Flags [P.], seq 164:200, ack 37, win 62780, length 36
+13:58:11.961921 IP _gateway.52520 > ubuntu-focal.ssh: Flags [.], ack 200, win 65535, length 0
+
