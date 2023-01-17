@@ -51,7 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-/__pyc*
+__pycache__/
 
 *.swp
 *.swo
