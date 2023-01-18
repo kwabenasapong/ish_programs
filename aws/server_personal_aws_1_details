@@ -1,0 +1,20 @@
+Instance ID: i-06f6faab5e362b73b
+Public IP address: 34.201.36.183
+User name: ubuntu
+
+SSH Client
+Instance ID
+i-06f6faab5e362b73b
+Open an SSH client.
+
+Locate your private key file. The key used to launch this instance is personal_aws_1.pem
+
+Run this command, if necessary, to ensure your key is not publicly viewable.
+ chmod 400 personal_aws_1.pem
+
+Connect to your instance using its Public DNS:
+ ec2-34-201-36-183.compute-1.amazonaws.com
+
+Example:
+
+ ssh -i "personal_aws_1.pem" ubuntu@ec2-34-201-36-183.compute-1.amazonaws.com
