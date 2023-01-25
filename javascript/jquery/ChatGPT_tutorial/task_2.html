@@ -2,18 +2,12 @@
 	<head>
 		<title>JQuery Task 1</title>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$("#firstblock").css("color", "red");
-				$("p").css("color", "blue");
-				$(".mybtn").css("color", "green")
-			});
-		</script>
 	</head>
 	<body>
 		<div id="firstblock">
-		<h1>Task 1</h1>
+		<h1>Task 1.1</h1>
 		<h2>Learning the basics of jquery</h2>
+		<h3>Using the document.querySelector()</h3>
 		<br/>
 		</div>
 		<div id="secondblock">
@@ -25,5 +19,10 @@
 		<div id="thirdblock">
 			<button class="mybtn">Next</button>
 		</div>
+			<script>
+				document.querySelector("#firstblock").style.color= "#FF0000";
+				document.querySelector("p").style.color = "#0000FF";
+				document.querySelector(".mybtn").style.color = "#00F800";
+		</script>
 	</body>
 </html>
