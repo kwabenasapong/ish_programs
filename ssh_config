@@ -1,0 +1,17 @@
+Host web_01
+	Hostname 34.232.68.81
+	Identityfile ~/.ssh/school
+	User ubuntu
+	Port 22
+
+Host web_02
+	Hostname 54.198.29.36
+	Identityfile ~/.ssh/school
+	User ubuntu
+	Port 22
+
+Host lb_01
+	Hostname 34.201.161.14
+	Identityfile ~/.ssh/school
+	User ubuntu
+	Port 22
